@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform player;
     public Rigidbody rb;
     public GameObject Coin;
 
     public float frwrdFrc = 1000f;
     public float sdwyFrc = 1000f;
+    public float jmpFrc = 1000f;
     
     public int health = 5;
 
@@ -32,6 +34,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("d") )
         {
             rb.AddForce(sdwyFrc * Time.deltaTime, 0, 0);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) ) 
+        {
+            rb.AddForce(0, jmpFrc * Time.deltaTime, 0);
         }
     }
 
